@@ -4,6 +4,7 @@
   <groupId>be.sdutry</groupId>
   <artifactId>WW-4774</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
 
   <properties>
     <struts2.version>2.5.10.1</struts2.version>
@@ -45,8 +46,18 @@
               <id>copy-dependencies</id>
               <phase>package</phase>
               <goals>
-                <goal>copy-dependencies</goal>
+                <goal>copy</goal>
               </goals>
+              <configuration>
+                <artifactItems>
+                  <artifactItem>
+                    <groupId>com.github.jsimone</groupId>
+                    <artifactId>webapp-runner</artifactId>
+                    <version>8.5.11.3</version>
+                    <destFileName>webapp-runner.jar</destFileName>
+                  </artifactItem>
+                </artifactItems>
+              </configuration>
             </execution>
           </executions>
         </plugin>
