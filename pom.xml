@@ -1,0 +1,28 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>be.sdutry</groupId>
+  <artifactId>WW-4774</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <properties>
+    <struts2.version>2.5.10.1</struts2.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-convention-plugin</artifactId>
+    </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-convention-plugin</artifactId>
+        <version>${struts2.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
