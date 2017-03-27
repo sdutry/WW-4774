@@ -199,6 +199,7 @@ public class ServletRedirectResult extends StrutsResultSupport implements Reflec
                 finalLocation = request.getContextPath() + finalLocation;
             }
 
+	    LOG.debug("finalLocation before: {}", finalLocation);
 	    if ("https".equals(request.getHeader("X-Forwarded-Proto"))) {
 		StringBuilder location = new StringBuilder();
                 location.append("https");
@@ -211,6 +212,7 @@ public class ServletRedirectResult extends StrutsResultSupport implements Reflec
 		}
 		finalLocation = location.toString();
             }
+	    LOG.debug("finalLocation after: {}", finalLocation);
 	    
         }
         ResultConfig resultConfig = invocation.getProxy().getConfig().getResults().get(invocation.getResultCode());
