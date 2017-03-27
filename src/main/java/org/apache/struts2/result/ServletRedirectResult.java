@@ -198,6 +198,19 @@ public class ServletRedirectResult extends StrutsResultSupport implements Reflec
             if (prependServletContext && (request.getContextPath() != null) && (request.getContextPath().length() > 0)) {
                 finalLocation = request.getContextPath() + finalLocation;
             }
+
+	    if ("https".equals(request.getHeader("X-Forwarded-Proto"))) {
+		StringBuilder location = new StringBuilder();
+                location.append("https");
+		location.append("://");
+		location.append(request.getServerName());
+		if (request.getServerPort() != 80) {
+                    location.append(':');
+		    location.append(request.getServerPort());
+		    location.append(finalLocation);
+		}
+            }
+	    
         }
         ResultConfig resultConfig = invocation.getProxy().getConfig().getResults().get(invocation.getResultCode());
         if (resultConfig != null) {
@@ -225,7 +238,6 @@ public class ServletRedirectResult extends StrutsResultSupport implements Reflec
         finalLocation = response.encodeRedirectURL(tmpLocation.toString());
 
         LOG.debug("Redirecting to finalLocation: {}", finalLocation);
-	LOG.debug("X-Forwarded-Proto: " + request.getHeader("X-Forwarded-Proto"));
 
         sendRedirect(response, finalLocation);
     }
