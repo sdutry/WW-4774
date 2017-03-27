@@ -209,6 +209,7 @@ public class ServletRedirectResult extends StrutsResultSupport implements Reflec
 		    location.append(request.getServerPort());
 		    location.append(finalLocation);
 		}
+		finalLocation = location.toString();
             }
 	    
         }
