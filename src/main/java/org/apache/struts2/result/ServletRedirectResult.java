@@ -208,8 +208,8 @@ public class ServletRedirectResult extends StrutsResultSupport implements Reflec
 		if (request.getServerPort() != 80) {
                     location.append(':');
 		    location.append(request.getServerPort());
-		    location.append(finalLocation);
 		}
+		location.append(finalLocation);
 		finalLocation = location.toString();
             }
 	    LOG.debug("finalLocation after: {}", finalLocation);
