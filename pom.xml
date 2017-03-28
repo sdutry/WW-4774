@@ -92,6 +92,13 @@
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-custom-results-plugin</artifactId>
+      <version>1.2-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/struts2-custom-results-plugin-1.2-SNAPSHOT.jar</systemPath>
+    </dependency>
   </dependencies>
 
   <dependencyManagement>
